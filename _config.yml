@@ -1,0 +1,14 @@
+plugins:
+  - jekyll-relative-links
+relative_links:
+  enabled: true
+  collections: true
+remote_theme: just-the-docs/just-the-docs 
+include:
+  - LICENSE.md
+  - stata.toc
+  - aki_ra.pkg  - destringerror_ra.pkg
+  - aki_ra/aki_ra.ado
+  - aki_ra/aki_ra.sthlp
+  - destringerror_ra/destringerror_ra.ado
+  - destringerror_ra/destringerror_ra.sthlp

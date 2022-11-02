@@ -1,0 +1,10 @@
+v 3
+d Random Utilities Repository
+d Razvan Azamfirei
+d Department of Anesthesiology and Critical Care Medicine
+d Johns Hopkins University School of Medicine 
+d
+d This contains several random utilities.
+d
+p aki_ra AKI Stage assignment
+p destringerror_ra Finds values that prevent clean destringing.
