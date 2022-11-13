@@ -8,7 +8,7 @@
 {viewerjumpto "Examples" "destringerror_ra##examples"}{...}
 {title:Title}
 {phang}
-{bf:destringerror_ra} {hline 2} a command to find values that prevent clean destringing>
+{bf:destringerror_ra} {hline 2} a command to find values that prevent clean destringing
 
 {marker syntax}{...}
 {title:Syntax}
