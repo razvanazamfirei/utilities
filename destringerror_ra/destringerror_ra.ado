@@ -13,6 +13,6 @@ if "`Empty'" != "" {
 		list `varlist' if missing(real(`varlist')) & `varlist' != ""
 	}
 	if empty == 1 {
-		list `varlist' if missing(real(`varlist')) & `varlist' != ""
+		list `varlist' if missing(real(`varlist'))
 	}
 end
