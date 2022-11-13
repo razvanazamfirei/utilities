@@ -6,7 +6,6 @@ relative_links:
 remote_theme: just-the-docs/just-the-docs 
 include:
   - LICENSE.md
-  - README.md
   - stata.toc
   - aki_ra.pkg  - destringerror_ra.pkg
   - aki_ra/aki_ra.ado
