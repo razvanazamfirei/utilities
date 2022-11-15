@@ -7,4 +7,5 @@ d
 d This contains several random utilities.
 d
 p aki_ra AKI Stage assignment
-p destringerror_ra Finds values that prevent clean destringing.
+p destringerror_ra Finds values that prevent clean destringing
+p datefix_ra Makes date fields uniform
