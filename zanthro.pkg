@@ -1,0 +1,58 @@
+d zanthro Standardizing pediatric anthropometric measures
+d Update: Standardizing anthropometric measures in
+d   children and adolescents with functions for
+d   egen
+d by Suzanna I. Vidmar, Clinical Epidemiology and
+d      Biostatictics Unit Murdoch Childrens
+d      Research Institute and University of
+d      Melbourne Department of Paediatrics Royal
+d      Children's Hospital, Melbourne, AUSTRALIA
+d    Tim J. Cole, MRC Centre of Epidemiology for
+d      Child Health, UCL Institute of Child
+d      Health, London, UK
+d    Huiqi Pan, MRC Centre of Epidemiology for
+d      Child Health, UCL Institute of Child
+d      Health, London, UK
+d Support:  suzanna.vidmar@@mcri.edu.au
+d After installation, type help ^zanthro^
+
+f https://www.stata-journal.com/software/sj13-2/dm0004_1/_gzanthro.ado
+f https://www.stata-journal.com/software/sj13-2/dm0004_1/zanthro.hlp
+f https://www.stata-journal.com/software/sj13-2/dm0004_1/_gzbmicat.ado
+f https://www.stata-journal.com/software/sj13-2/dm0004_1/zbmicat.hlp
+F https://www.stata-journal.com/software/sj13-2/dm0004_1/zlenageius.dta
+F https://www.stata-journal.com/software/sj13-2/dm0004_1/zhtageus.dta
+F https://www.stata-journal.com/software/sj13-2/dm0004_1/zwtagecomus.dta
+F https://www.stata-journal.com/software/sj13-2/dm0004_1/zbmiageus.dta
+F https://www.stata-journal.com/software/sj13-2/dm0004_1/zhcageius.dta
+F https://www.stata-journal.com/software/sj13-2/dm0004_1/zwtlenius.dta
+F https://www.stata-journal.com/software/sj13-2/dm0004_1/zwthtus.dta
+F https://www.stata-journal.com/software/sj13-2/dm0004_1/zhtageuk.dta
+F https://www.stata-journal.com/software/sj13-2/dm0004_1/zwtageuk.dta
+F https://www.stata-journal.com/software/sj13-2/dm0004_1/zbmiageuk.dta
+F https://www.stata-journal.com/software/sj13-2/dm0004_1/zhcageuk.dta
+F https://www.stata-journal.com/software/sj13-2/dm0004_1/zshtageuk.dta
+F https://www.stata-journal.com/software/sj13-2/dm0004_1/zllageuk.dta
+F https://www.stata-journal.com/software/sj13-2/dm0004_1/zwsageuk.dta
+F https://www.stata-journal.com/software/sj13-2/dm0004_1/zbfageuk.dta
+F https://www.stata-journal.com/software/sj13-2/dm0004_1/zlhagewho.dta
+F https://www.stata-journal.com/software/sj13-2/dm0004_1/zwtagewho.dta
+F https://www.stata-journal.com/software/sj13-2/dm0004_1/zbmiagewho.dta
+F https://www.stata-journal.com/software/sj13-2/dm0004_1/zhcagewho.dta
+F https://www.stata-journal.com/software/sj13-2/dm0004_1/zacagewho.dta
+F https://www.stata-journal.com/software/sj13-2/dm0004_1/zssagewho.dta
+F https://www.stata-journal.com/software/sj13-2/dm0004_1/ztsagewho.dta
+F https://www.stata-journal.com/software/sj13-2/dm0004_1/zwtlenwho.dta
+F https://www.stata-journal.com/software/sj13-2/dm0004_1/zwthtwho.dta
+F https://www.stata-journal.com/software/sj13-2/dm0004_1/zlhtageukwhopreterm.dta
+F https://www.stata-journal.com/software/sj13-2/dm0004_1/zwtageukwhopreterm.dta
+F https://www.stata-journal.com/software/sj13-2/dm0004_1/zbmiageukwhopreterm.dta
+F https://www.stata-journal.com/software/sj13-2/dm0004_1/zhcageukwhopreterm.dta
+F https://www.stata-journal.com/software/sj13-2/dm0004_1/zlhtageukwhoterm.dta
+F https://www.stata-journal.com/software/sj13-2/dm0004_1/zwtageukwhoterm.dta
+F https://www.stata-journal.com/software/sj13-2/dm0004_1/zbmiageukwhoterm.dta
+F https://www.stata-journal.com/software/sj13-2/dm0004_1/zhcageukwhoterm.dta
+F https://www.stata-journal.com/software/sj13-2/dm0004_1/zbmicat.dta
+f https://www.stata-journal.com/software/sj13-2/dm0004_1/zwtukeg.dta
+f https://www.stata-journal.com/software/sj13-2/dm0004_1/zwtukwhoeg.dta
+f https://www.stata-journal.com/software/sj13-2/dm0004_1/zbmicateg.dta
