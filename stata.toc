@@ -9,4 +9,4 @@ d
 p aki_ra AKI Stage assignment
 p destringerror_ra Finds values that prevent clean destringing
 p datefix_ra Makes date fields uniform
-p zanthro Rehosts zanthro
+p zanthro Zanthro rehosting with fixed name
