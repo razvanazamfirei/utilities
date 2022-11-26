@@ -1,17 +1,57 @@
 plugins:
-  - jekyll-relative-links
+- jekyll-relative-links
 relative_links:
-  enabled: true
-  collections: true
+enabled: true
+collections: true
 remote_theme: just-the-docs/just-the-docs 
 include:
-  - LICENSE.md
-  - stata.toc
-  - aki_ra.pkg
-  - destringerror_ra.pkg
-  - datefix_ra.pkg
-  - zanthro.pkg
-  - aki_ra/*
-  - destringerror_ra/*
-  - datefix_ra/*
-  - zanthro/*
+- LICENSE.md
+- stata.toc
+- aki_ra.pkg
+- destringerror_ra.pkg
+- datefix_ra.pkg
+- zanthro.pkg
+- aki_ra/aki_ra.ado
+- aki_ra/aki_ra.sthlp
+- destringerror_ra/destringerror_ra.ado
+- destringerror_ra/destringerror_ra.sthlp
+- datefix_ra/datefix_ra.ado
+- datefix_ra/datefix_ra/sthlp
+- zanthro/_gzanthro.ado
+- zanthro/zanthro.hlp
+- zanthro/_gzbmicat.ado
+- zanthro/zbmicat.hlp
+- zanthro/zlenageius.dta
+- zanthro/zhtageus.dta
+- zanthro/zwtagecomus.dta
+- zanthro/zbmiageus.dta
+- zanthro/zhcageius.dta
+- zanthro/zwtlenius.dta
+- zanthro/zwthtus.dta
+- zanthro/zhtageuk.dta
+- zanthro/zwtageuk.dta
+- zanthro/zbmiageuk.dta
+- zanthro/zhcageuk.dta
+- zanthro/zshtageuk.dta
+- zanthro/zllageuk.dta
+- zanthro/zwsageuk.dta
+- zanthro/zbfageuk.dta
+- zanthro/zlhagewho.dta
+- zanthro/zwtagewho.dta
+- zanthro/zbmiagewho.dta
+- zanthro/zhcagewho.dta
+- zanthro/zacagewho.dta
+- zanthro/zssagewho.dta
+- zanthro/ztsagewho.dta
+- zanthro/zwtlenwho.dta
+- zanthro/zwthtwho.dta
+- zanthro/zlhtageukwhopreterm.dta
+- zanthro/zwtageukwhopreterm.dta
+- zanthro/zbmiageukwhopreterm.dta
+- zanthro/zhcageukwhopreterm.dta
+- zanthro/zlhtageukwhoterm.dta
+- zanthro/zwtageukwhoterm.dta
+- zanthro/zbmiageukwhoterm.dta
+- zanthro/zhcageukwhoterm.dta
+- zanthro/zbmicat.dta
+
