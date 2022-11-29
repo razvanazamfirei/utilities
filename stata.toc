@@ -8,9 +8,5 @@ d This contains several random utilities.
 d
 p aki_ra AKI Stage assignment
 p destringerror_ra Finds values that prevent clean destringing
-<<<<<<< HEAD
-p datefix_ra Makes date fields uniform
-=======
 p datefix_ra Makes date fields uniform
 p zanthro Zanthro rehosting with fixed name
->>>>>>> main
