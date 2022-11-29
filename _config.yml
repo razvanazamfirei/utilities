@@ -5,6 +5,7 @@ enabled: true
 collections: true
 remote_theme: just-the-docs/just-the-docs 
 include:
+<<<<<<< HEAD
 - LICENSE.md
 - stata.toc
 - aki_ra.pkg
@@ -55,3 +56,15 @@ include:
 - zanthro/zhcageukwhoterm.dta
 - zanthro/zbmicat.dta
 
+=======
+  - LICENSE.md
+  - stata.toc
+  - aki_ra.pkg
+  - destringerror_ra.pkg
+  - datefix_ra.pkg
+  - zanthro.pkg
+  - aki_ra/*
+  - destringerror_ra/*
+  - datefix_ra/*
+  - zanthro/*
+>>>>>>> f112903 (Merge branch 'main' of https://github.com/razvanazamfirei/random-utilities)
