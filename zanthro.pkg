@@ -1,0 +1,60 @@
+d zanthro Standardizing pediatric anthropometric measures
+d Update: Standardizing anthropometric measures in
+d   children and adolescents with functions for
+d   egen
+d by Suzanna I. Vidmar, Clinical Epidemiology and
+d      Biostatictics Unit Murdoch Childrens
+d      Research Institute and University of
+d      Melbourne Department of Paediatrics Royal
+d      Children's Hospital, Melbourne, AUSTRALIA
+d    Tim J. Cole, MRC Centre of Epidemiology for
+d      Child Health, UCL Institute of Child
+d      Health, London, UK
+d    Huiqi Pan, MRC Centre of Epidemiology for
+d      Child Health, UCL Institute of Child
+d      Health, London, UK
+d Support:  suzanna.vidmar@@mcri.edu.au
+d After installation, type help ^zanthro^
+d This is just a rehosting of the Stata Journal Package
+d I am not claiming any authorship. Original in SJ13-2 dm0004_1
+
+f zanthro/_gzanthro.ado
+f zanthro/zanthro.hlp
+f zanthro/_gzbmicat.ado
+f zanthro/zbmicat.hlp
+F zanthro/zlenageius.dta
+F zanthro/zhtageus.dta
+F zanthro/zwtagecomus.dta
+F zanthro/zbmiageus.dta
+F zanthro/zhcageius.dta
+F zanthro/zwtlenius.dta
+F zanthro/zwthtus.dta
+F zanthro/zhtageuk.dta
+F zanthro/zwtageuk.dta
+F zanthro/zbmiageuk.dta
+F zanthro/zhcageuk.dta
+F zanthro/zshtageuk.dta
+F zanthro/zllageuk.dta
+F zanthro/zwsageuk.dta
+F zanthro/zbfageuk.dta
+F zanthro/zlhagewho.dta
+F zanthro/zwtagewho.dta
+F zanthro/zbmiagewho.dta
+F zanthro/zhcagewho.dta
+F zanthro/zacagewho.dta
+F zanthro/zssagewho.dta
+F zanthro/ztsagewho.dta
+F zanthro/zwtlenwho.dta
+F zanthro/zwthtwho.dta
+F zanthro/zlhtageukwhopreterm.dta
+F zanthro/zwtageukwhopreterm.dta
+F zanthro/zbmiageukwhopreterm.dta
+F zanthro/zhcageukwhopreterm.dta
+F zanthro/zlhtageukwhoterm.dta
+F zanthro/zwtageukwhoterm.dta
+F zanthro/zbmiageukwhoterm.dta
+F zanthro/zhcageukwhoterm.dta
+F zanthro/zbmicat.dta
+f zanthro/zwtukeg.dta
+f zanthro/zwtukwhoeg.dta
+f zanthro/zbmicateg.dta
