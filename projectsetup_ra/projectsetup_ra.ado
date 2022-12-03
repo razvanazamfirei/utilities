@@ -22,83 +22,59 @@ local scriptversion 1.1
         scalar g = g + 1
     }
 }*/
-local projectname something
-scalar i = 0
-scalar g = 0
-while i == 0 & g != 5{
-	di as text "This is version `scriptversion' of the project set-up script."_n
-	di as text "You can always type exit to end the script."_n
-	di as text "This current directory is: `c(pwd)'"_n
-	di as text "Would you like to:" _n 
-	di as text "1. Set up the project in the current folder (1)" _n
-	di as text "2. Set up the project in a different folder (2)" _n
-	di as result "Select your option (1/2):" _request(folderopt)
-	if "$folderopt" == "1" {
-		local directory `c(pwd)'
-		scalar i = 0
-		cap cd "`directory'"
-	}
-	if "$folderopt" == "2" {
-		di as text "What is the path to the directory you want to use?" _request(diropt)
+	local projectname something
+	scalar i = 0
+	scalar g = 0
+	while i == 0 & g != 5{
+		di as text "This is version `scriptversion' of the project set-up script."_n
+		di as text "You can always type exit to end the script."_n
+		di as text "This current directory is: `c(pwd)'"_n
+		di as text "Would you like to:" _n 
+		di as text "1. Set up the project in the current folder (1)" _n
+		di as text "2. Set up the project in a different folder (2)" _n
+		di as result "Select your option (1/2):" _request(folderopt)
+		if "$folderopt" == "1" {
+			local directory `c(pwd)'
+			scalar i = 1
+			cap cd "`directory'"
+		}
+		if "$folderopt" == "2" {
+			di as text "What is the path to the directory you want to use?" _request(diropt)
 			if "$diropt" == "exit"{
 				di as error "Script exited by user."
 				err 498
 			}
 			pause
-		cap cd "$diropt"
-		di _rc
-		if _rc == 0{
-			local directory $diropt
-			scalar i = 0
-			cap cd "`directory'"
-		}
-		if _rc != 0{
-			di as text "Directory does not exit. Create? (Y/N)" _request(dirmakeopt)
-			if inlist("$dirmakeopt", "Y", "y", "YES", "yes", "Yes") {
-				cap mkdir "$diropt"
-				pause 
+			cap cd "$diropt"
+			di _rc
+			if _rc == 0{
 				local directory $diropt
-				scalar i = 0
+				scalar i = 1
 				cap cd "`directory'"
 			}
-			else{
-				di as error "Script exited by user."
-				err 498
+			if _rc != 0{
+				di as text "Directory does not exit. Create? (Y/N)" _request(dirmakeopt)
+				if inlist("$dirmakeopt", "Y", "y", "YES", "yes", "Yes") {
+					cap mkdir "$diropt"
+					pause 
+					local directory $diropt
+					scalar i = 1
+					cap cd "`directory'"
+				}
+				else{
+					di as error "Script exited by user."
+					err 498
+				}
 			}
 		}
-	}
-	if "$folderopt" == "exit" {
-		di as error "Script exited by user."
-		err 498
-	}
-	else{
-		scalar g = g + 1
-	}
-	
-    di as text "The current directory is:"
-    pwd
-    di as result "Is this the location where you want to create the project? (Y/N)" _request(ans)
-if "$ans" == "N"{
-    di as result "What is the location?" _request(dir)
-    local directory $dir
-    di "`directory'"
-    cap cd "`directory'"
-        if _rc != 0 {
-    cap mkdir "`directory'"
-    }
-    scalar i = 1
-}
-if "$ans" == "Y"{
-    di "Setting up directory structure."
-    local directory `c(pwd)'
-    scalar i = 1
-    cap cd "`directory'"
-}
-if "$ans" != "Y" & "$and" != "N"{
-    scalar i = 0
-    scalar g = g + 1
-}
-}
+		if "$folderopt" == "exit" {
+			di as error "Script exited by user."
+			err 498
+		}
+		else{
+			scalar g = g + 1
+		}
+	}	
 
 global projectfolder `c(pwd)'
 cap cd $projectfolder
@@ -113,17 +89,6 @@ cap mkdir "$projectfolder/results/tables"
 cap mkdir "$projectfolder/logs"
 cap mkdir "$projectfolder/data/participant_key"
 cap mkdir "$projectfolder/papers"
-
-log using README, replace smcl name(README)
-noisily di as text "{hline}"
-noisily di as text "The project name is `projectname'."
-noisily di as text "This project was created on `c(current_date)' `c(current_time)'."
-noisily di as text "The version in use is: Stata `c(stata_version)'/`c(edition_real)'"
-noisily di as text "The computer is: `c(hostname)' [`c(machine_type)']"
-noisily di as text "The user initiating this project is: `c(username)'"
-noisily di as text "{hline}"
-log close README
-
 cap cd "$projectfolder"
 
 	tempname 	oldHandle
@@ -183,12 +148,6 @@ cap cd "$projectfolder"
 			_col(4)"*Standardize settings accross users" _n ///
 			_col(4)"ieboilstart, version(12.1)" _col(40) "//Set the version number to the oldest version used by anyone in the project team" _n ///
 			_col(4) _char(96)"r(version)'" 		_col(40) "//This line is needed to actually set the version from the command above" _n ///
-	* At some point here I'll want to verify that the list does not contain any of my commands and capture the ones that fail ssc. 
-	file close `oldHandle'
-
-		*Write folder globals section header and the root folders
-	file open `oldHandle' using `"`oldTextFile'"', write append
-	file write `oldHandle' /// 
 			_col(4)"* ******************************************************************** *" _n ///
 			_col(4)"*" _n ///
 			_col(4)"*" _col(12) "PART 1:  PREPARING FOLDER PATH GLOBALS" _n ///
@@ -245,23 +204,25 @@ cap cd "$projectfolder"
 				_col(4)"local importDo" _col(25) "0" _n ///
 				_col(4)"local cleaningDo" _col(25) "0" _n ///
 				_col(4)"local constructDo" _col(25) "0" _n ///
-				_col(4)"local analysisDo" _col(25) "0" _n
-				
+				_col(4)"local analysisDo" _col(25) "0" _n 	
 	file close `oldHandle'
+*	copy "`oldHandle'"  "$`oldTextFile'" , replace
+	global_setup
+end
 
-end		
+
 cap program drop    global_setup
 program define      global_setup
 
+
     *Create a temporary textfile
     tempname    glbStupHandle
-    tempfile    glbStupTextFile
-
+    local    glbStupTextFile "$projectfolder/global_setup.do"
     cap file close  `glbStupHandle'
     file open       `glbStupHandle' using "`glbStupTextFile'", text write append
 
 
-    file write  `glbStupHandle' ///
+    file write `glbStupHandle' ///
         _col(4)"* ******************************************************************** *" _n    ///
         _col(4)"*" _n                                                                           ///
         _col(4)"*" _col(12) "SET UP STANDARDIZATION GLOBALS AND OTHER CONSTANTS" _n             ///
@@ -326,14 +287,12 @@ program define      global_setup
         _col(4)"*/"_n                                                                           ///
         _n                                                                                      ///
         _col(4)"* ******************************************************************** *" _n    ///
-        _col(4)"* Anything else" _n                                                    			 ///
+        _col(4)"* Anything else" _n                                                    			///
         _col(4)"* ******************************************************************** *" _n    ///
-        _n                                                                                      ///
+        _n                                                                                      
+    file close `glbStupHandle'
 
-    file close      `glbStupHandle'
-
-    *Copy the new master dofile from the tempfile to the original position
-    copy "`glbStupTextFile'"  "$projectfolder/global_setup.do" , replace
-
+*	Copy the new master dofile from the tempfile to the original position
+*    copy "`glbStupTextFile'"  "$projectfolder/global_setup.do" , replace
 end
 
