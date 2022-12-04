@@ -1,4 +1,3 @@
-
 site_name: Utilities Documentation
 theme:
   name: material
@@ -16,3 +15,4 @@ nav:
     - About:
         - 'License': 'license.md'
         - 'Release Notes': 'release-notes.md'
+repo_url: https://github.com/squidfunk/mkdocs-material
