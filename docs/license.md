@@ -619,12 +619,12 @@ an absolute waiver of all civil liability in connection with the
 Program, unless a warranty or assumption of liability accompanies a
 copy of the Program in return for a fee.
 
---------
+---
+
 ## Additional Licenses
 Parts of the software are covered by the following licenses:
 
----
-### MIT License
+**MIT License**
 
 [Copyright (c) DIME Analytics, DIME, DEC, The World Bank Group.](github.com/worldbank/ietoolkit)
 
@@ -646,8 +646,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
----
-### MIT License
+
+**MIT License**
 
 [Copyright (c) 2016 Kristoffer Bjarkefur <kbjarkefur@worldbank.org>, World Bank Group.](github.com/worldbank/ietoolkit)
 
@@ -669,8 +669,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
----
-### MIT License
+
+**MIT License**
 
 [Copyright (c) 2019 Julian Reif](github.com/reifjulian/my-project)
 
