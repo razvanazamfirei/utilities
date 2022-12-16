@@ -6,7 +6,7 @@ hide:
 
 This repository contains Stata commands I've written to make my life easier. All the utilities can be installed with the following:
 ```
-net from https://razvanazamfirei.github.io/utilities
+net from https://azamfirei.com/utilities
 net install [packagename]
 ```
 Here is a brief description of each of the available commands. For more information, please see the appropriate documentation page.
