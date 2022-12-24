@@ -20,9 +20,9 @@ Here is a brief description of each of the available commands. For more informat
 
 - **zanthro** - This is essentially a rehost of a Stata Journal Package (sj_****). I have not written this.
 
-In progress: 
+In progress:
 
-- Project set-up package. 
+- Project set-up package.
 - Randomization modules.
 
 ---

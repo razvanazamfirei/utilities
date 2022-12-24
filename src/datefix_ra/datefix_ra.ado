@@ -13,7 +13,7 @@ quietly{
 	if _rc != 0{
 		local timefor %tc
 	}
-	ds, has (format %t*) 
+	ds, has (format %t*)
 	local ds_vars `r(varlist)'
 	local vars: list ds_vars- not
 	ds `vars', not(format `timefor' | format `dateform')
@@ -22,7 +22,7 @@ quietly{
 	local tdv `r(varlist)'
 	capture confirm names `tdv'
 	if _rc == 0 {
-	format `tdv' `dateform' 
+	format `tdv' `dateform'
 	}
 	if _rc != 0 {
 		error 0
@@ -31,7 +31,7 @@ quietly{
 	local tcv `r(varlist)'
 	capture confirm names `tcv'
 	if _rc == 0 {
-		format `tcv' `timefor' 
+		format `tcv' `timefor'
 	}
 	if _rc != 0 {
 		error 0
