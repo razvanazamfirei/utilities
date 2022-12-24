@@ -2,7 +2,7 @@ v 3
 d destringerror_ra. Finds values that prevent clean destringing.
 d Razvan Azamfirei
 d Department of Anesthesiology and Critical Care Medicine
-d Johns Hopkins University School of Medicine 
+d Johns Hopkins University School of Medicine
 d Distribution-Date: 13nov2022
 f destringerror_ra/destringerror_ra.ado
 f destringerror_ra/destringerror_ra.sthlp

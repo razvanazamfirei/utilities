@@ -14,17 +14,17 @@ anthropometric measures in children and adolescents{p_end}
 {title:Syntax}
 
 {p 8 17 2}{cmd:egen} [{it:{help datatype:type}}] {newvar} {cmd:=}
-{cmd:zanthro}{cmd:(}{varname}{cmd:,}{it:chart}{cmd:,}{it:version}{cmd:)} 
-{ifin}{cmd:,} 
+{cmd:zanthro}{cmd:(}{varname}{cmd:,}{it:chart}{cmd:,}{it:version}{cmd:)}
+{ifin}{cmd:,}
 {cmdab:x:var(}{varname}{cmd:)} {cmdab:gen:der(}{varname}{cmd:)}
 {cmdab:genc:ode(}{cmdab:m:ale=}{it:code}{cmd:,} {cmdab:f:emale=}{it:code}{cmd:)}
-[{cmdab:ageu:nit(}{it:unit}{cmd:)} {cmdab:gest:age(}{varname}{cmd:)} {cmdab:noc:utoff}] 
+[{cmdab:ageu:nit(}{it:unit}{cmd:)} {cmdab:gest:age(}{varname}{cmd:)} {cmdab:noc:utoff}]
 
 {p 8 17 2}{cmd:egen} [{it:{help datatype:type}}] {newvar} {cmd:=}
-{cmd:zbmicat}{cmd:(}{varname}{cmd:)} {ifin}{cmd:,} 
-{cmdab:x:var(}{varname}{cmd:)} {cmdab:gen:der(}{varname}{cmd:)} 
+{cmd:zbmicat}{cmd:(}{varname}{cmd:)} {ifin}{cmd:,}
+{cmdab:x:var(}{varname}{cmd:)} {cmdab:gen:der(}{varname}{cmd:)}
 {cmdab:genc:ode(}{cmdab:m:ale=}{it:code}{cmd:,} {cmdab:f:emale=}{it:code}{cmd:)}
-[{cmdab:ageu:nit(}{it:unit}{cmd:)}] 
+[{cmdab:ageu:nit(}{it:unit}{cmd:)}]
 
 {p 4 4 2}{cmd:by} cannot be used with either of these functions.
 
@@ -118,7 +118,7 @@ codes are not allowed, even if the gender variable is a string.
 
 {phang}{cmd:ageunit(}{it:unit}{cmd:)} gives the unit for the age
 variable and is only valid for measurement-for-age charts; that is, omit
-this option when the chart code is {cmd:wl} or {cmd:wh} (see the 
+this option when the chart code is {cmd:wl} or {cmd:wh} (see the
 {help zanthro##charts:Growth charts} section below).  The {it:unit} can
 be {cmd:day}, {cmd:week}, {cmd:month}, or {cmd:year}.  This option may
 be omitted if the {it:unit} is {cmd:year}, because this is the default.
@@ -299,7 +299,7 @@ should specify the data source as follows:
 {pstd}Gender variable {cmd:sex} contains the codes {cmd:Male} and {cmd:Female}{p_end}
 
 {p 8 14 2}Note: The codes cannot be abbreviated.  They must be typed into the
-{hi:gencode()} 
+{hi:gencode()}
 option exactly as they appear in your dataset.{p_end}
 {p 12 16 2}{cmd:. egen zbaus = zanthro(bmi,ba,US), xvar(agemth) gender(sex) gencode(m=Male, f=Female) ageunit(month)}{p_end}
 
@@ -325,14 +325,14 @@ option exactly as they appear in your dataset.{p_end}
 {pstd}UCL Institute of Child Health{p_end}
 {pstd}London, UK{p_end}
 {pstd}tim.cole@ucl.ac.uk{p_end}
-	
+
 {pstd}Huiqi Pan{p_end}
 {pstd}MRC Centre of Epidemiology for Child Health{p_end}
 {pstd}UCL Institute of Child Health{p_end}
 {pstd}London, UK{p_end}
 {pstd}h.pan@ich.ucl.ac.uk{p_end}
 
-	
+
 {title:References}
 
 {phang}World Health Organization.  2006.  WHO child growth standards:

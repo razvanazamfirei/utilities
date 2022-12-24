@@ -13,7 +13,7 @@ newvar
 [{help if}]
 [{help in}]
 {cmd:,}
-{opt pre(varname numeric)} 
+{opt pre(varname numeric)}
 {opt post(varname numeric)}
 
 {synoptset 20 tabbed}{...}
@@ -22,7 +22,7 @@ newvar
 {synopt:newvar} Specify a valid new variable name to hold your classification results. {p_end}
 
 {synopt:{opt pre(varname)}} baseline creatinine value.{p_end}
- 
+
 {synopt:{opt post(varname)}} maximum creatinine value.{p_end}
 {synoptline}
 
