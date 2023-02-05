@@ -1,5 +1,8 @@
 {smcl}
-{* *! version 1.0 21 Jul 2022}{...}
+{* *! version 1.1 5 Feb 2023}{...}
+{viewerjumpto "License" "./aki_ra##License"}{...}
+{viewerjumpto "Syntax" "./aki_ra##syntax"}{...}
+
 {title:Title}
 
 {phang}
@@ -37,3 +40,14 @@ Kidney Disease: Improving Global Outcomes (KDIGO). Acute Kidney Injury Work Grou
 
 Razvan Azamfirei
 Email: {browse "mailto:stata@azamfirei.com":stata@azamfirei.com}
+
+{marker License}{...}
+{title:License}
+{p}{hi:Copyright 2022 Razvan Azamfirei}
+
+{pstd}Licensed under the Apache License, Version 2.0 (the"License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at: {p_end}
+
+{pstd}{browse "https://www.apache.org/licenses/LICENSE-2.0":http://www.apache.org/licenses/LICENSE-2.0}{p_end}
+
+{pstd}Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.{p_end}
+{pstd} See the License for the specific language governing permissions and limitations under the License. {p_end}

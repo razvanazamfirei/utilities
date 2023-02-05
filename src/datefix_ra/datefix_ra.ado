@@ -1,10 +1,14 @@
 version 17
-program datefix_ra
-syntax, [not(varlist) DATEformat(string) TIMEformat(string)]
-quietly{
+cap program drop 	datefix_ra
+	program 		datefix_ra
+
+	syntax, [not(varlist) DATEformat(string) TIMEformat(string)]
+qui{
 	local notlist `not'
 	local dateform `dateformat'
 	local timefor `timeformat'
+
+	* Verify format is appropriate
 	capture confirm format `dateform'
 	if _rc != 0{
 		local dateform %td
