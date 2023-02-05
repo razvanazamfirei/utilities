@@ -4,5 +4,5 @@ d Razvan Azamfirei
 d Department of Anesthesiology and Critical Care Medicine
 d Johns Hopkins University School of Medicine
 d Distribution-Date: 13nov2022
-f aki_ra/aki_ra.ado
-f aki_ra/aki_ra.sthlp
+f src/aki_ra/aki_ra.ado
+f src/aki_ra/aki_ra.sthlp
