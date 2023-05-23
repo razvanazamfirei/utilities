@@ -118,7 +118,7 @@ program define _gzanthro
 	*zap commas to spaces (i.e. commas indulged)
 	local 1 : subinstr local 1 "," " ", all
 	tokenize "`1'", parse("= ")
-
+	
 	if "`1'" == substr("male",1,length("`1'")) {
 		*male first
 		if "`2'" ~= "=" | "`5'" ~= "=" {
@@ -155,14 +155,14 @@ program define _gzanthro
 		capture assert `gender'=="`male'" | `gender'=="`female'" | `gender'=="" | `gender'==" "
 		if _rc {
 			di as err "The gender variable takes values other than `male' and `female'"
-			exit
+			exit 
 		}
 	}
 	else {
 		capture assert `gender'==`male' | `gender'==`female' | `gender'>=.
 		if _rc {
 			di as err "The gender variable takes values other than `male' and `female'"
-			exit
+			exit 
 		}
 	}
 
@@ -222,10 +222,10 @@ program define _gzanthro
 	}
 	else if "`chart'"=="ba" & "`version'"=="UK" {
 		local lmsfile zbmiageuk.dta
-	}
+	}	
 	else if "`chart'"=="ba" & "`version'"=="US" {
 		local lmsfile zbmiageus.dta
-	}
+	}	
 	else if "`chart'"=="ba" & "`version'"=="WHO" {
 		local lmsfile zbmiagewho.dta
 	}
@@ -297,7 +297,7 @@ program define _gzanthro
 
 	marksample touse
 
-	quietly {
+	quietly { 
 		if "`y'" == "str" {
 			gen byte __SVJCKHsex=1 if `gender'=="`male'"
 			replace __SVJCKHsex=2 if `gender'=="`female'"
@@ -306,7 +306,7 @@ program define _gzanthro
 			gen byte __SVJCKHsex=1 if `gender'==`male'
 			replace __SVJCKHsex=2 if `gender'==`female'
 		}
-
+		
 		if "`ageunit'"=="month" {
 			gen float `t'=`xvar'/12
 			gen float `tday'=`xvar'*(365.25/12)*10000
@@ -346,16 +346,16 @@ program define _gzanthro
 			replace __SVJCKHxmrg=`next' if `tday'==`next'
 		}
 
-		*The length/height-for-age and BMI-for-age WHO charts have parameters for age 2 from
-		*the 0-2 and 2-5 year charts. Where age=2 years, using the parameters from the 2-5 year
-		*chart.
+		*The length/height-for-age and BMI-for-age WHO charts have parameters for age 2 from 
+		*the 0-2 and 2-5 year charts. Where age=2 years, using the parameters from the 2-5 year 
+		*chart. 
 		if ("`chart'"=="ha" | "`chart'"=="ba") & "`version'"=="WHO" {
 		    gen byte __SVJCKHagegp=1 if `t'<2
 			replace __SVJCKHagegp=2 if `t'>=2
 			sort __SVJCKHsex __SVJCKHagegp __SVJCKHxmrg
 			merge __SVJCKHsex __SVJCKHagegp __SVJCKHxmrg using "`fn'", _merge(__SVJCKHmerge)
 		}
-		*The UK-WHO charts have duplicated parameters for ages 2 weeks, 2 years and 4 years.
+		*The UK-WHO charts have duplicated parameters for ages 2 weeks, 2 years and 4 years. 
 		*These were copied from LMSgrowth. When sorted by __SVJCKHsex, __SVJCKHagegp and __SVJCKHage,
 		*the chart is sorted in the LMSgrowth order. For the duplicated ages, when a child is exactly
 		*that age, the parameters of the older age group are used.
@@ -363,8 +363,8 @@ program define _gzanthro
 		    gen byte __SVJCKHagegp=1 if `tday'<140000
 			replace __SVJCKHagegp=2 if `tday'>=140000 & `t'<2
 			replace __SVJCKHagegp=3 if `t'>=2 & `t'<4
-			replace __SVJCKHagegp=4 if `t'>=4
-			sort __SVJCKHsex __SVJCKHagegp __SVJCKHxmrg
+			replace __SVJCKHagegp=4 if `t'>=4	
+			sort __SVJCKHsex __SVJCKHagegp __SVJCKHxmrg		
 			merge __SVJCKHsex __SVJCKHagegp __SVJCKHxmrg using "`fn'", _merge(__SVJCKHmerge)
 		}
 		else  {
@@ -412,7 +412,7 @@ program define _gzanthro
 			*Linear interpolation for first segment and last segment.
 			replace ``y'' = __SVJCKH`y'+`xvarfrac'*(__SVJCKH`y'_nx-__SVJCKH`y') if `touse' & __SVJCKHmerge==3 & /*
 					*/((`tday'>`min' & `tday'<`min2') | (`tday'>`max2' & `tday'<`max'))
-
+			
 			*Some head circumference charts end at 18 years for males and 17 years for females. For these
 			*charts extra code is required so that a linear rather than cubic interpolation is done on the
 			*last segment for females: 16 years, 11 months to 17 years.
@@ -425,10 +425,10 @@ program define _gzanthro
 				replace ``y'' = __SVJCKH`y'+`xvarfrac'*(__SVJCKH`y'_nx-__SVJCKH`y') if `touse' & __SVJCKHmerge==3 & /*
 				*/`tday'>`age16y11m' & `tday'<`age17y' & __SVJCKHsex==2
 			}
-
+			
 			*Linear interpolation for the length/height-for-age and BMI-for-age WHO charts at the segments
 			*around age=2. There are parameters for age=2 from the 0-2 and 2-5 year charts, which need to be
-			*split. Using linear interpolation because these are the last segment of the 0-2 year chart and
+			*split. Using linear interpolation because these are the last segment of the 0-2 year chart and 
 			*the first segment of the 2-5 year chart.
 			if ("`chart'"=="ha" | "`chart'"=="ba") & "`version'"=="WHO" {
 				su __SVJCKHxmrg if __SVJCKHxvar==2
@@ -437,11 +437,11 @@ program define _gzanthro
 				su __SVJCKHxmrg if __SVJCKHxvar<2
 				local age1y11m=r(max)
 				su __SVJCKHxmrg if __SVJCKHxvar>2
-				local age2y1m=r(min)
+				local age2y1m=r(min)		
 				replace ``y'' = __SVJCKH`y'+`xvarfrac'*(__SVJCKH`y'_nx-__SVJCKH`y') if `touse' & __SVJCKHmerge==3 & /*
 				*/`tday'>`age1y11m' & `tday'<`age2y1m' & `tday'!=`age2y'
 			}
-
+			
 			*Linear interpolation for the UK-WHO charts at the segments around ages 2 weeks, 2 years and
 			*4 years. Using linear interpolation because the last segment of one chart and the first segment
 			*of another occur at these ages.
@@ -461,7 +461,7 @@ program define _gzanthro
 				su __SVJCKHxmrg if __SVJCKHxvar<2
 				local age1y11m=r(max)
 				su __SVJCKHxmrg if __SVJCKHxvar>2
-				local age2y1m=r(min)
+				local age2y1m=r(min)		
 				*Around 4 years:
 				su __SVJCKHxmrg if __SVJCKHxvar==4
 				assert r(min)==r(max)
@@ -475,7 +475,7 @@ program define _gzanthro
 				*/(`tday'>`age1y11m' & `tday'<`age2y1m' & `tday'!=`age2y') | /*
 				*/(`tday'>`age3y11m' & `tday'<`age4y1m'& `tday'!=`age4y'))
 			}
-
+			
 			*No interpolation required if age equals the age on the growth chart.
 			replace ``y'' = __SVJCKH`y' if `tday'==__SVJCKHxmrg & `touse' & __SVJCKHmerge==3
 		}
@@ -496,9 +496,9 @@ program define _gzanthro
 	}
 
 	quietly count if `g'<. & `touse'
-	if r(N) {
+	if r(N) { 
 		local s = cond(r(N)>1,"s","")
-		di as text "(Z value`s' generated for " r(N) " case`s') "
+		di as text "(Z value`s' generated for " r(N) " case`s') " 
 		di as text "(gender was assumed to be coded male=`male', female=`female')"
 		if "`forage'"=="1" {
 			di as text "(age was assumed to be in `ageunit's)"
@@ -506,30 +506,30 @@ program define _gzanthro
 	}
 
 	quietly count if `g'==. & `touse'
-	if r(N) {
+	if r(N) { 
 		if "`gestage'"~="" {
 			if "`nocutoff'"=="" {
-				di as text "(Z values can be missing because age is nonpositive or otherwise"
+				di as text "(Z values can be missing because age is nonpositive or otherwise" 
 				di as text " out of range for the chart code, the gender variable is missing,"
 				di as text " gestation age is missing or places corrected age out of range"
 				di as text " for the chart code, or the Z value has an absolute value >=5)"
 			}
 			else {
 				di as text "(Z values can be missing because age is nonpositive or otherwise"
-				di as text " out of range for the chart code, the gender variable is missing,"
+				di as text " out of range for the chart code, the gender variable is missing," 
 				di as text " or gestation age is missing or places corrected age out of range"
 				di as text " for the chart code)"
 			}
 		}
 		else {
 			if "`nocutoff'"=="" {
-				di as text "(Z values can be missing because xvar is nonpositive or otherwise"
+				di as text "(Z values can be missing because xvar is nonpositive or otherwise" 
 				di as text " out of range for the chart code, the gender variable is missing,"
 				di as text " or the Z value has an absolute value >=5)"
 			}
 			else {
 				di as text "(Z values can be missing because xvar is nonpositive or otherwise"
-				di as text " out of range for the chart code, or the gender variable is missing)"
+				di as text " out of range for the chart code, or the gender variable is missing)" 
 			}
 		}
 	}
