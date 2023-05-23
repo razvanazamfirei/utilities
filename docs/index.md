@@ -6,7 +6,7 @@ hide:
 
 This repository contains Stata commands I've written to make my life easier. All the utilities can be installed with the following:
 ```
-net from https://azamfirei.com/utilities
+net from https://razvanazamfirei.github.io/utilities
 net install [packagename]
 ```
 Here is a brief description of each of the available commands. For more information, please see the appropriate documentation page.
@@ -20,9 +20,9 @@ Here is a brief description of each of the available commands. For more informat
 
 - **zanthro** - This is essentially a rehost of a Stata Journal Package (sj_****). I have not written this.
 
-In progress:
+In progress: 
 
-- Project set-up package.
+- Project set-up package. 
 - Randomization modules.
 
 ---

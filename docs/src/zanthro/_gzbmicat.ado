@@ -31,7 +31,7 @@ program define _gzbmicat
 	*zap commas to spaces (i.e. commas indulged)
 	local 1 : subinstr local 1 "," " ", all
 	tokenize "`1'", parse("= ")
-
+	
 	if "`1'" == substr("male",1,length("`1'")) {
 		*male first
 		if "`2'" ~= "=" | "`5'" ~= "=" {
@@ -68,14 +68,14 @@ program define _gzbmicat
 		capture assert `gender'=="`male'" | `gender'=="`female'" | `gender'=="" | `gender'==" "
 		if _rc {
 			di as err "The gender variable takes values other than `male' and `female'"
-			exit
+			exit 
 		}
 	}
 	else {
 		capture assert `gender'==`male' | `gender'==`female' | `gender'>=.
 		if _rc {
 			di as err "The gender variable takes values other than `male' and `female'"
-			exit
+			exit 
 		}
 	}
 
@@ -106,7 +106,7 @@ program define _gzbmicat
 
 	marksample touse
 
-	quietly {
+	quietly { 
 		if "`y'" == "str" {
 			gen byte __IOTFsex=1 if `gender'=="`male'"
 			replace __IOTFsex=2 if `gender'=="`female'"
@@ -139,15 +139,15 @@ program define _gzbmicat
 		gen `agefrac2' = `agefrac'*`agefrac' if `ageyr'>2.5 & `ageyr'<17.5 & `touse' & __IOTFmerge==3
 
 		foreach suf in 16 17 18_5 25 30 {
-			gen `__`suf'' = .
+			gen `__`suf'' = .			
 
 			*No interpolation required if age equals the age on the growth chart
 			replace `__`suf'' = __IOTF`suf' if `ageyr'==__IOTFage & `touse' & __IOTFmerge==3
-
+			
 			*Linear interpolation for first segment and last segment
 			replace `__`suf'' = __IOTF`suf'+`agefrac'*(__IOTF`suf'_nx-__IOTF`suf') ///
 				    	if ((`ageyr'>2 & `ageyr'<2.5) | (`ageyr'>17.5 & `ageyr'<18)) & `touse' & __IOTFmerge==3
-
+			
 			*Cubic interpolation
 			gen `a0' = -__IOTF`suf'_pre/6+__IOTF`suf'/2-__IOTF`suf'_nx/2+__IOTF`suf'_nx2/6 ///
 					if `ageyr'>2.5 & `ageyr'<17.5 & `touse' & __IOTFmerge==3
@@ -156,7 +156,7 @@ program define _gzbmicat
 			gen `a3' = __IOTF`suf' if `ageyr'>2.5 & `ageyr'<17.5 & `touse' & __IOTFmerge==3
 			replace `__`suf'' = `a0'*`agefrac'*`agefrac2'+`a1'*`agefrac2'+`a2'*`agefrac'+`a3' ///
 					if `ageyr'>2.5 & `ageyr'<17.5 & `touse' & __IOTFmerge==3
-			drop `a0' `a1' `a2' `a3'
+			drop `a0' `a1' `a2' `a3' 
 		}
 
 		gen `type' `g' = -3 if `measure'<`__16' & `ageyr'>=2 & `ageyr'<=18 & `touse' & __IOTFmerge==3
@@ -176,18 +176,18 @@ program define _gzbmicat
 	}
 
 	quietly count if `g'<. & `touse'
-	if r(N) {
+	if r(N) { 
 		local y = cond(r(N)==1,"y","")
 		local ies = cond(r(N)>1,"ies","")
 		local s = cond(r(N)>1,"s","")
-		di as text "(BMI categor`y'`ies' generated for " r(N) " case`s')"
+		di as text "(BMI categor`y'`ies' generated for " r(N) " case`s')" 
 		di as text "(gender was assumed to be coded male=`male', female=`female')"
 		di as text "(age was assumed to be in `ageunit's)"
 	}
 
 	quietly count if `g'==. & `touse'
-	if r(N) {
-		di as text "(A BMI category can be missing because age<2 years or age>18 years,"
+	if r(N) { 
+		di as text "(A BMI category can be missing because age<2 years or age>18 years," 
 		di as text " the gender variable is missing, or BMI is a nonpositive value)"
 	}
 
@@ -199,3 +199,4 @@ program Badsyntax
 	di as err "gencode() option invalid: see {help zbmicat}"
 	exit 198
 end
+
