@@ -1,4 +1,4 @@
-*! | Version: 1.1 | Last Updated: Feb 5, 2023
+*! | Version: 1.2 | Last Updated: May 23, 2023
 
 *  | KDIGO Classification of AKI | Author: Razvan Azamfirei |
 
@@ -66,7 +66,7 @@ version 17.0
     replace `aki_var' = 1 if ///
         !inlist(`aki_var', 1, 2, 3) &                                        ///
         (inrange(`creatinine_ratio', ratio1, .) |                            ///
-        inrange(`creatinine_difference', dif1, .)
+        inrange(`creatinine_difference', dif1, .))
         
     replace `akivar' = `aki_var' if `touse'
     
